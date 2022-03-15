@@ -20,4 +20,13 @@
 # Na dobry początek, proszę wyświetlić napis `Zaczynamy!` (bez apostrofów).
 # Nie wyświetlać nic więcej.
 #
-
+#
+#
+# Trochę kombinuję, ale sprawdzam co mogę zrobić :P
+# Tylko podwójne cudzysłowy pozwalają na coś takiego
+variable1="Zaczynamy!"
+variable2="$variable1"
+# wersja 1
+# echo "$variable2"
+# wersja 2
+printf "%s\n" "$variable2"

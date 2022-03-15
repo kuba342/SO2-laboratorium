@@ -21,4 +21,14 @@
 # Jeśli plik istnieje, wyświetlić napis `jest`, w przeciwnym razie
 # wyświetlić napis `nie ma`. Nie wyświetlać nic więcej.
 #
+var1="jest"
+var2="nie ma"
+fileName="drugi"
+cd dane
+if [ -e $fileName ]
+then
+    echo $var1
+else
+    printf "%s\n" "$var2"
+fi
 
