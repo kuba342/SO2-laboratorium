@@ -21,4 +21,12 @@
 # których zawartości nie możemy zmienić (brak prawa do zapisu).
 # Kolejność łączenia plików nie ma znaczenia.
 #
-
+files="dane/icao/*"
+for fileName in $files
+do
+    if [[ ! -w $fileName ]] 
+    then
+        text=$(cat $fileName) 
+        echo $text
+    fi
+done
