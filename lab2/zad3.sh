@@ -21,4 +21,19 @@
 # Plik powinien zawierać napis `Ala ma kota.`. Jeśli tak jest, wyświetlić `ok`.
 # Jeśli czegoś brakuje to wyświetlić `nok`.
 #
+value1="Ala ma kota."
+fileName="trzeci"
+cd dane 
+if [[ -f $fileName ]]
+then 
+    value2=$(cat $fileName)
+    if [[ $value1 = $value2 ]]
+    then
+        echo "ok"
+    else
+        echo "nok"
+    fi
+else
+    echo "nok"
+fi
 

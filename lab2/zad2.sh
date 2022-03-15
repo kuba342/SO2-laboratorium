@@ -25,7 +25,7 @@ var1="jest"
 var2="nie ma"
 fileName="drugi"
 cd dane
-if [ -e $fileName ]
+if [[ -f $fileName ]]
 then
     echo $var1
 else
