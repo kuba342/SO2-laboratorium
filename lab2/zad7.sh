@@ -23,4 +23,17 @@
 # Proszę pamiętać o każdorazowym upewnieniu się, że zawartość pliku możemy
 # przeczytać (mamy prawo do odczytu – aby uniknąć błędów).
 #
-
+path1="dane/kontrola/*"
+file="dane/poszukiwany"
+text=$(cat $file)
+for file1 in $path1
+do 
+    if [[ -r "$file1" ]] 
+    then
+        text1=$(cat "$file1")
+        if [[ $text1 = $text ]]
+        then
+            echo "$(basename "$file1")"
+        fi
+    fi
+done

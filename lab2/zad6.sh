@@ -20,4 +20,10 @@
 # Przeczytać zawartość pliku `dane/Zahlen.txt` i obliczyć sumę wszystkich
 # znajdujących się tam liczb. Na koniec wyświetlić tylko wynik, nic więcej.
 #
-
+result=0
+file='dane/Zahlen.txt'
+while IFS= read -r line
+do
+    let "result = result + line"
+done < "$file"
+echo $result
