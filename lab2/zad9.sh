@@ -22,4 +22,13 @@
 # te wpisy i jako wynik działania skryptu wyświetlić te, które *NIE* wskazują
 # żadnych istniejących plików.
 #
-
+file="dane/tajne"
+folder="dane/"
+while IFS= read -r line
+do
+    potentialFile="$folder$line"
+    if [[ ! -f "$potentialFile" ]]
+    then
+        echo "$line"
+    fi
+done < "$file"
