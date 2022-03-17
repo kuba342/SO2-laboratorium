@@ -26,12 +26,12 @@
 path1="dane/kontrola/*"
 file="dane/poszukiwany"
 text=$(cat $file)
-for file1 in $path1
+for file1 in $path1;
 do 
-    if [[ -r "$file1" ]] 
+    if [[ -r "$file1" ]];
     then
         text1=$(cat "$file1")
-        if [[ $text1 = $text ]]
+        if [[ $text1 = $text ]];
         then
             echo "$(basename "$file1")"
         fi

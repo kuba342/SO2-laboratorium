@@ -23,11 +23,11 @@
 #
 path1="dane/icao/*"
 path2="dane/backup/"
-for file1 in $path1
+for file1 in $path1;
 do
     prefix1=${path1%"*"}
     name1=${file1#"$prefix1"}
-    if [[ ! -f "$path2$name1" ]]
+    if [[ ! -f "$path2$name1" ]];
     then
         echo $name1
     fi

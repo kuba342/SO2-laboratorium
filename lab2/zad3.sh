@@ -24,10 +24,10 @@
 value1="Ala ma kota."
 fileName="trzeci"
 cd dane 
-if [[ -f $fileName ]]
+if [[ -f $fileName ]];
 then 
     value2=$(cat $fileName)
-    if [[ $value1 = $value2 ]]
+    if [[ $value1 = $value2 ]];
     then
         echo "ok"
     else

@@ -22,9 +22,9 @@
 # Kolejność łączenia plików nie ma znaczenia.
 #
 files="dane/icao/*"
-for fileName in $files
+for fileName in $files;
 do
-    if [[ ! -w $fileName ]] 
+    if [[ ! -w $fileName ]];
     then
         text=$(cat $fileName) 
         echo $text

@@ -22,4 +22,24 @@
 # oznaczone jako wykonywalne. Wyświetlić ścieżki do wszystkich znalezionych
 # plików względem katalogu `dane/`. Każdą ścieżkę wyświetlić w osobnej linii.
 #
+mainFolder="dane/*"
+for file in $mainFolder
+do
+    #Jeśli plik:
+    if [[ -x $file && -f $file ]];
+    then
+        echo "$(basename "$file")"
+    fi
 
+    #Jeśli katalog:
+    if [[ -d "$file" ]];
+    then
+        for file1 in "$file"/*;
+        do
+            if [[ -f "$file1" && -x "$file1" ]];
+            then
+                echo "$file1" | sed 's|dane/||'
+            fi
+        done
+    fi
+done

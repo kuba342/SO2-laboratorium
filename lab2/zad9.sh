@@ -24,10 +24,10 @@
 #
 file="dane/tajne"
 folder="dane/"
-while IFS= read -r line
+while IFS= read -r line;
 do
     potentialFile="$folder$line"
-    if [[ ! -f "$potentialFile" ]]
+    if [[ ! -f "$potentialFile" ]];
     then
         echo "$line"
     fi

@@ -22,7 +22,7 @@
 #
 result=0
 file='dane/Zahlen.txt'
-while IFS= read -r line
+while IFS= read -r line;
 do
     let "result = result + line"
 done < "$file"
