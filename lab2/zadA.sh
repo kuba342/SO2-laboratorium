@@ -26,4 +26,11 @@
 # Wskazówka: pomocne może być zdefiniowanie funkcji i jej rekurencje wywołanie.
 #
 
-#test
+#Z użyciem find:
+while read -r file;
+do
+    if [[ ! -r "$file" ]];
+    then
+        echo "$file" | sed 's|dane/||'
+    fi
+done < <(find dane/deep -type f)
