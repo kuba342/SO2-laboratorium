@@ -26,3 +26,4 @@
 # Wskazówka: pomocne może być zdefiniowanie funkcji i jej rekurencje wywołanie.
 #
 
+#test
