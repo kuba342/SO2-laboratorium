@@ -27,10 +27,38 @@
 #
 
 #Z użyciem find:
-while read -r file;
-do
-    if [[ ! -r "$file" ]];
-    then
-        echo "$file" | sed 's|dane/||'
-    fi
-done < <(find dane/deep -type f)
+#while read -r file;
+#do
+#    if [[ ! -r "$file" ]];
+#    then
+#        echo "$file" | sed 's|dane/||'
+#    fi
+#done < <(find dane/deep -type f)
+
+directory="dane/deep"
+
+#instrukcja pozwalająca odczytywać kropki...
+shopt -s dotglob
+
+function scan () {
+    dir=$1
+    #echo $dir
+    #Iteruję przez elementy katalogu:
+    for file in "${dir}"/*;
+    do
+        #Jeśli bez dostępu zwykły plik - echo
+        if [[ ! -r "${file}" ]];
+        then
+            echo "${file}" | sed 's|dane/||'
+        fi
+
+        #Jeśli katalog, to rekurencyjne wywołanie
+        if [[ -d "${file}" ]];
+        then
+            scan "${file}"
+        fi
+    done
+}
+
+scan "${directory}"
+
