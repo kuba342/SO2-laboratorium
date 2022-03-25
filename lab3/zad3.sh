@@ -22,4 +22,11 @@
 # Wyświetlić nazwy plików ze znalezionymi dowiązaniami, każdą w osobnej linii.
 # Nie wyświetlać nic ponadto!
 #
-
+directory="dane/pierwiastki/"
+for file in $directory*;
+do
+    if [[ -L $file && ! -e $file ]];
+    then
+        echo $(basename $file)
+    fi
+done

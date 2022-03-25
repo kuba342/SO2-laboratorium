@@ -21,4 +21,11 @@
 # *poprawnie* wskazują na jakieś miejsce w systemie plików (ich cel istnieje).
 # Wyświetlić ścieżki kanoniczne do wskazywanych miejsc, każdą w osobnej linii.
 #
-
+directory="dane/pierwiastki/"
+for file in $directory*;
+do
+    if [[ -L "$file" && -f "$file" ]];
+    then
+        echo $(realpath "$file")
+    fi
+done
