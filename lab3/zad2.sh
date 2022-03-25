@@ -21,4 +21,13 @@
 # – niezależnie czy są to dowiązania poprawne, czy nie. Jak wynik zwrócić
 # tylko i wyłącznie samą liczbę.
 #
-
+directory="dane/pierwiastki/"
+counter=0
+for file in $directory*;
+do
+    if [[ -L "$file" ]];
+    then
+        ((counter="$counter"+1))
+    fi
+done 
+echo $counter

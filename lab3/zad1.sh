@@ -21,4 +21,8 @@
 # `atom` z katalogu `dane/`, o ile dowiązanie i wskazywany plik istnieją.
 # Jeśli któregoś brakuje, nie wyświetlać nic.
 #
-
+file=dane/atom
+if [[ -L $file ]];
+then
+    cat $file
+fi
