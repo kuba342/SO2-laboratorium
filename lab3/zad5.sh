@@ -21,4 +21,12 @@
 # `dane/icao/`. Proszę odnaleźć które to pliki i wyświetlić ich nazwy, każdą
 # w osobnej linii.
 #
-
+twardziel="dane/twardziel"
+directory="dane/icao/"
+for file in $directory*;
+do
+    if [[ $twardziel -ef $file ]];
+    then
+        echo $(basename $file)
+    fi
+done
