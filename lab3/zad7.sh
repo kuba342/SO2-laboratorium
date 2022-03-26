@@ -21,4 +21,11 @@
 # które z tych ścieżek to dowiązania do istniejących plików wykonywalnych.
 # Jako wynik wyświetlić pasujące wpisy z pliku (ścieżki do dowiązań).
 #
-
+links="dane/links.txt"
+while IFS= read -r line;
+do
+    if [[ -L "$line" && -x "$line" ]];
+    then
+        echo "$line"
+    fi
+done < "$links"

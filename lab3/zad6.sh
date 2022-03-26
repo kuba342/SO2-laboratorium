@@ -22,4 +22,17 @@
 # z takich dowiązań, ale poprawione w taki sposób, aby były one ścieżkami
 # kanonicznymi. Element wskazywany przez dowiązanie nie musi istnieć.
 #
-
+directory="dane/pierwiastki/"
+for file in $directory*;
+do
+    if [[ -L "$file" ]];
+    then
+        # ścieżka do porównania
+        path=$(readlink "$file")
+        #echo $path
+        if [[ "${path::1}" == "/" ]];
+        then
+            readlink -m "$file"
+        fi
+    fi
+done 
