@@ -27,4 +27,30 @@
 # każdy wpis w osobnej linii (na przykład: L:Oxygen – indeks mówi, w którym
 # katalogu powinien znaleźć się dany plik).
 #
+L="dane/elements/"
+P="dane/pierwiastki/"
+for file in $L*;
+do
+    if [[ ! -L "$file" ]];
+    then 
+        name=$(basename "$file")
+        potential="$P$name"
+        if [[ ! -L "$potential" && ! -e $potential ]];
+        then
+            echo "P:$name"
+        fi
+    fi 
+done
 
+for file in $P*;
+do
+    if [[ ! -L "$file" ]];
+    then 
+        name=$(basename "$file")
+        potential="$L$name"
+        if [[ ! -L "$potential" && ! -e $potential ]];
+        then
+            echo "L:$name"
+        fi  
+    fi
+done
