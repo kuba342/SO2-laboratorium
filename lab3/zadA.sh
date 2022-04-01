@@ -22,4 +22,32 @@
 # (to znaczy: kilka dowiązań twardych do tego samego pliku traktujemy jako 1).
 # Jako wynik wyświetlić po prostu samą liczbę, nic więcej.
 #
+directory="dane/icao"
+duplicates="dane/duplicates"
+counter=0
+mkdir $duplicates
+for file in $directory/*;
+do
+    for file1 in $directory/*;
+    do
+        if [[ "$file" -ef "$file1" && ! "$file" = "$file1" ]];
+        then
+            mv "$file1" $duplicates
+        fi
+    done
+done
 
+#Zliczam pozostałe pliki
+for file in $directory/*;
+do
+    counter=$(($counter+1))
+done
+echo $counter
+
+#przekopiowuję sprowrotem pliki
+for file in $duplicates/*;
+do
+    mv "$file" $directory
+done
+#usuwam nowy katalog
+rmdir $duplicates
