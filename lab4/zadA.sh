@@ -27,4 +27,4 @@
 # to interesują nas takie, które mają przynajmniej 30kiB. Jako wynik proszę
 # wyświetlić po prostu ścieżki do takich plików.
 #
-
+find linux-5.11.13 -path "*mips*" -prune , \( -name "core.c" -o -name "irq.c" \) -a \( -size -1024c -o \( -path "*bluetooth*" -a -size +30k \) \)
