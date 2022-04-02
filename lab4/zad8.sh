@@ -25,4 +25,4 @@
 # podkatalogach. Jako wynik proszę wyświetlić same nazwy pasujących plików
 # (każda nazwa w nowej linii).
 #
-
+find linux-5.11.13 -path "*testing*" -prune , -type f -name "*.h" -size 0 -exec basename {} \;
