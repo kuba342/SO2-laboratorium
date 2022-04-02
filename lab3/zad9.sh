@@ -25,4 +25,25 @@
 # dowiązania, dwukropek i po spacji: najkrótszą poprawną ścieżkę względną
 # do niego od istniejącego dowiązania (na przykład: bravo: ../icao/bravo).
 #
+directory="dane/"
+
+for file in $directory* $directory*/*;
+do
+    # Jeśli dowiązanie miękkie i nie ma pliku
+    if [[ -L "${file}" && ! -e "${file}" ]];
+    then
+        for file1 in $directory* $directory*/*;
+        do
+            #Jeśli nie jest dowiązaniem
+            if [[ ! -L "${file1}" ]];
+            then
+                #Jeśli nazwy te same
+                if [[ $(basename "${file1}") = $(basename "$file") ]];
+                then
+                    echo "$(basename "$file"): $(realpath --relative-to="$(dirname "$file")" "${file1}")"
+                fi
+            fi
+        done
+    fi
+done
 
