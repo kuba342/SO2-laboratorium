@@ -25,4 +25,4 @@
 # ich zawartość. Podać ile dokładnie jest takich plików (zwrócić wyłącznie
 # liczbę plików).
 #
-
+find linux-5.11.13 -type f -size -1024c -perm -200 | wc -l

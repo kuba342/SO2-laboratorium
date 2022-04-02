@@ -25,4 +25,4 @@
 # dokładnie 3 dowolne znaki (czyli cała nazwa pliku ma dokładnie pięć znaków).
 # Jako wynik zwrócić tylko i wyłącznie liczbę plików.
 #
-
+find linux-5.11.13 -type f -iname '???.c' | wc -l
