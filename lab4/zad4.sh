@@ -24,4 +24,6 @@
 # ile jest wykonywalnych skryptów powłoki pośród nich (plików z rozszerzeniem
 # .sh na końcu nazwy). Jako wynik zwrócić ułamek w postaci X/Y i nic więcej.
 #
-
+X=$(find linux-5.11.13 -executable -type f -iname '*.sh' | wc -l)
+Y=$(find linux-5.11.13 -executable -type f | wc -l)
+echo $X/$Y
