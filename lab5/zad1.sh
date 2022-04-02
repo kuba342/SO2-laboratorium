@@ -21,4 +21,4 @@
 # Linux – każdy użytkownik jest zdefiniowany w osobnej linii. Proszę podać
 # ilu jest użytkowników w tym systemie. Jako wynik zwrócić samą liczbę!
 #
-
+wc -l dodatkowe/etc-passwd | tr -d [:alpha:] | tr -d [:punct:] | tr -d [:space:]
