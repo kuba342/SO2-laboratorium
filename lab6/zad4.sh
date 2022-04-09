@@ -23,4 +23,4 @@
 # nagłówka (pierwsza linia w pliku). Jako wynik zwrócić dwa napisy w osobnych
 # liniach, a wartości liczbowe poprzedzić etykietą "CPU:" bądź "RAM:".
 #
-
+awk 'NR!=1{cpu+=$3; ram+=$4}; END{printf("CPU: %.1f\nRAM: %.1f\n", cpu, ram)}' dodatkowe/ps-aux

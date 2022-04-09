@@ -23,4 +23,4 @@
 # wynosi co najmniej 1000, a ich powłoka (siódme pole) to /bin/bash.
 # Każdą nazwę użytkownika wypisać w nowej linii.
 #
-
+awk 'BEGIN{FS=":"} $3>999 && $7=="/bin/bash" {print $1}' dodatkowe/etc-passwd

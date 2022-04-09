@@ -24,4 +24,4 @@
 # Podany plik zawiera początek naszej epopei narodowej
 # (źródło: https://wolnelektury.pl/media/book/txt/pan-tadeusz.txt).
 #
-
+awk NR%3-2==0 "dodatkowe/tadeusz.txt"
