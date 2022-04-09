@@ -22,4 +22,4 @@
 # Jako wynik proszę zwrócić tylko i wyłącznie liczbę odpowiednich plików.
 # Źródła znajdują się w katalogu `coreutils-8.32`.
 #
-
+find "coreutils-8.32" -type f -exec grep -l '^#include <stdio.h>$' {} \; | wc -l

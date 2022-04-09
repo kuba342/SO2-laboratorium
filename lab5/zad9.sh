@@ -21,4 +21,4 @@
 # czyli jaka nazwa występuje najczęściej. Jako wynik zwrócić tylko samą nazwę.
 # Źródła znajdują się w katalogu `coreutils-8.32`.
 #
-
+find "coreutils-8.32" -type f -exec basename {} \; | sort | uniq -c | sort | tail -n 1 | awk '{print $2}'
