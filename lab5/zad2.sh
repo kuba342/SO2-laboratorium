@@ -22,4 +22,4 @@
 # coś innego niż `/bin/nologin` i `/bin/false` jako powłokę (ostatnia kolumna
 # / wartość w każdym wierszu). Każdą nazwę użytkownika wypisać w osobnej linii.
 #
-
+grep -v "/bin/nologin\|/bin/false" dodatkowe/etc-passwd | cut -f 1 -d ":"

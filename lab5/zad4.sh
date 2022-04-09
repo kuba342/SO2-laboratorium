@@ -24,4 +24,4 @@
 # Proszę pamiętać o pominięciu nagłówka z nazwami kolumn.
 # Wyświetlić same nazwy, bez powtórzeń.
 #
-
+tail -n +2 "dodatkowe/ps-aux" | cut -d " " -f 1 | sort -u

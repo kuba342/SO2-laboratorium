@@ -23,4 +23,6 @@
 # Wiadomość ogranicza się wyłącznie do małych znaków alfabetu łacińskiego.
 # Wyświetlić wyłącznie odszyfrowaną treść, nic poza tym.
 #
-
+# Działa to tak, że a->x, b->y, c->z, d->a, itd.
+# W drugim wyrażeniu są podane 2 zakresy: x-z i a-w. W ten sposób jest przesunięcie
+cat "dodatkowe/cezar" | tr "[:lower:]" "x-za-w"
