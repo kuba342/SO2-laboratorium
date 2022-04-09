@@ -31,7 +31,7 @@ L="dane/elements/"
 P="dane/pierwiastki/"
 for file in $L*;
 do
-    if [[ ! -L "$file" ]];
+    if [[ ! -L "$file" $$ -f "$file" ]];
     then 
         name=$(basename "$file")
         potential="$P$name"
@@ -44,7 +44,7 @@ done
 
 for file in $P*;
 do
-    if [[ ! -L "$file" ]];
+    if [[ ! -L "$file" $$ -f "$file" ]];
     then 
         name=$(basename "$file")
         potential="$L$name"
