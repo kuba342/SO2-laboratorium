@@ -21,4 +21,4 @@
 # procesora (trzecia kolumna). Jako wynik zwrócić numer procesu (druga kolumna)
 # oraz po spacji pełną nazwę procesu (wszystko od 11 kolumny do końca wiersza).
 #
-
+tail -n +2 "dodatkowe/ps-aux" | sort -nk3,3 | tail -1 | awk '{printf("%d", $2); for(i=11; i<=NF; i++) printf(" %s",$i); printf("\n")}'
