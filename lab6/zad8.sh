@@ -24,4 +24,20 @@
 # liczbę znaków w każdej linii jak to możliwe). Jako wynik programu wyświetlić
 # tekst po przekształceniu.
 #
-
+# Iteruję przez wszystkie pola w pliku
+awk '
+    {for(i=1; i<=NF; i++){
+        sum+=length($i)
+        if(sum >= 79){
+            printf("\n");
+            sum=length($i);
+        }
+        else{
+            if(i>1){
+                printf(" ");
+            }
+            sum+=1
+        }
+        printf("%s", $i);
+    }}; 
+    {printf("\n")}' dodatkowe/lipsum.txt

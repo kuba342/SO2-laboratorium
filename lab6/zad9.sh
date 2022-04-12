@@ -25,4 +25,20 @@
 # – proszę zwrócić uwagę, że niektóre słowa zawierają je na końcu i odpowiednio
 # uwzględnić taką sytuację.
 #
-
+# W tym zadaniu jest po prostu zmienna tablicowa z przyporządkowaniem klucz:wartość
+awk '
+{gsub(/,/,"")};
+{gsub(/\./,"")};
+{
+    for(i=1; i<=NF; i++){
+        tab[length($i)]+=1;
+    }
+} 
+END{
+    for(i=1; i<=length(tab); i++){
+        if(tab[i]==0){
+            continue;
+        }
+        printf("%d %d\n", i, tab[i]);
+    }
+}' dodatkowe/nowomowa.txt
