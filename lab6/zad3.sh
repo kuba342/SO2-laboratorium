@@ -29,4 +29,5 @@
 #
 # Tutaj trzeba użyć zmiennej tablicowej do policzenia sobie ilości pól
 # $0 - cały rekord              liczba kolumn                porównanie z następnymi
-awk '{split($0, table, ",")}; NR==1{count=length(table)}; length(table)!=count{print NR}' dodatkowe/cities.csv
+#awk '{split($0, table, ",")}; NR==1{count=length(table)}; length(table)!=count{print NR}' dodatkowe/cities.csv
+awk 'BEGIN{FS=","} NR==1{count=NF}; count!=NF{print NR}' dodatkowe/cities.csv

@@ -25,4 +25,5 @@
 # Uwaga! Proszę pamiętać o uwzględnieniu znaków końca linii w obliczeniach
 # dotyczących liczby znaków!
 #
-
+#     wiersz        znaki               słowa
+awk '{lines++}; {chars+=length($0)+1}; {words+=NF}; END{printf("%d\n%d\n%d\n", chars, words, lines)}' dodatkowe/nowomowa.txt

@@ -26,4 +26,4 @@
 # Wynik powinien odpowiadać odpowiednio podzielonemu wynikowi komendy:
 # du --summarize --bytes --apparent-size coreutils-8.32/
 #
-
+find coreutils-8.32 -printf "%s\n" | awk '{bytes+=$0}; END{printf("%.4f\n",bytes/1024^2)}'

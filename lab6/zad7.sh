@@ -27,4 +27,4 @@
 # Plik do przetworzenia to `dodatkowe/grades.csv`, zmodyfikowana wersja
 # pliku ze strony: https://people.sc.fsu.edu/~jburkardt/data/csv/csv.html
 #
-
+awk 'NR>1{average=($4+$5+$6+$7+(2*$8))/6; print substr($3, 2, 11) " " average}' dodatkowe/grades.csv
