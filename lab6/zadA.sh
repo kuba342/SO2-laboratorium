@@ -34,4 +34,21 @@
 # Uwaga! Jeden prowadzący ma dodatkową spację na końcu linii określającej go
 # i według przyjętej reguły – traktujemy ten wpis jak osobną osobę!
 #
-
+awk '
+    {
+        if($1 == "Prowadzący:"){
+            ind=index($0, ": ");
+            ind+=2;
+            prowadzacy=substr($0, ind);
+            next;
+        }
+        if(prowadzacy != ""){
+            tab[prowadzacy] += length($0);
+        }
+    }
+    END {
+        for(element in tab){
+            print tab[element] "  " element
+        }
+    }
+' dodatkowe/doc-tajemnic.txt
