@@ -20,4 +20,10 @@
 # imionami – to znaczy zaczynają się wielką literą. Każde słowo zwrócić
 # w nowej linii, bez powtórzeń, bez żadnych znaków innych niż litery.
 #
-
+awk '{
+    for(i=1; i<=NF; i++){
+        if($i ~ /[A-Z]\w*/){
+            print $i;
+        }
+    }
+}' dodatkowe/lipsum.txt | sort -u

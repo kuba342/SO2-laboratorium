@@ -23,4 +23,4 @@
 # specjalnych, takich jak nawiasy klamrowe oraz oczywiście spacje.
 # Każdy znaleziony unikalny odnośnik wypisać w nowej linii.
 #
-
+grep -o "[a-z]\+://[^{} ]\+" dodatkowe/slajdy.tex

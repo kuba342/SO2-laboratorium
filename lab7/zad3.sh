@@ -21,4 +21,4 @@
 # aż do najbliższego znaku >. Jako wynik zwrócić pozostałą zawartość,
 # pomijając linie puste i takie, których jedyną zawartość stanowią spacje.
 #
-
+sed -r 's/<[^>]*>//g' dodatkowe/cpplint.txt | awk '!/^ *$/{print $0}'
