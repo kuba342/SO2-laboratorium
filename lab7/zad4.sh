@@ -21,4 +21,7 @@
 # traktujemy również linie, których jedyną zawartością są białe znaki.
 # Wynik wyświetlić jako ułamek w postaci X/Y.
 #
-
+# Poszukuję znaków, które nie są białymi i zliczam
+grep -cE '\S+' dodatkowe/slajdy.tex | tr '\n' '/'
+# Zliczam też wszystkie linie
+wc -l < dodatkowe/slajdy.tex

@@ -23,4 +23,4 @@
 # liczba spacji, a później pojawia się nawias otwierający i lista argumentów.
 # Zwrócić same unikalne nazwy, bez nawiasów, każdą nazwę w nowej linii.
 #
-
+grep -oP 'def ( )*.*' dodatkowe/service.py | awk '{print $2}' | cut -f1 -d '(' | sort -u
