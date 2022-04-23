@@ -20,18 +20,28 @@
 # zawartość, ale podmieniając w locie zapisane tam wartości temperatur ze skali
 # Celsjusza na Fahrenheita: T[°F] = T[°C] * 9/5 + 32.
 #
-awk '{
+awk -F "+" '{
     for(i=1; i<=NF; i++){
-        if($i ~ /[0-9+.]*°C/){
-            print $i;
-            if(substr($i, 7, 1)=="C"){
-                value = substr($i, 2, length($i)-3);
-                print value;
+        if($i ~ /[0-9.]*°C.*/){
+            #print "1 " $i;
+            if(substr($i, 6, 1)=="C"){
+                reszta = substr($i, 7);
+                value = substr($i, 1, 4);
+                value = value * 9/5 + 32;
+                value = "+"value"°F"reszta;
+                $i = value;
+                #print "2 " value;
             }
-            else if(substr($i, 8, 1)=="C"){
-                value = substr($i, 2, length($i)-4);
-                print value;
+            else if(substr($i, 7, 1)=="C"){
+                reszta = substr($i, 8);
+                value = substr($i, 1, 5);
+                value = value * 9/5 + 32;
+                value = "+"value"°F"reszta;
+                $i = value;
+                #print "3 " value;
             }
         }
     }
+    gsub(/( ){1}(+){1}/, "+");
+    print $0;
 }' dodatkowe/sensors.txt
