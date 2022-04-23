@@ -25,4 +25,4 @@
 # nawiasów kwadratowych [].
 # Jako wynik zwrócić same unikalne ścieżki, każdą w nowej linii.
 #
-
+grep '\fbox{' dodatkowe/slajdy.tex | awk 'BEGIN{FS="{"} {print $3}' | cut -f1 -d "}"

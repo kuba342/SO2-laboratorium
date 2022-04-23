@@ -17,7 +17,7 @@
 #
 # Zadanie 9.
 # Proszę wyświetlić komentarze z bieżącego pliku z zadaniami ($0), wstawiając
-# znaki niełamliwej spacji języka HTML (&nbsp;) zamiast zwykłych spacji
-# za wszystkimi pojedynczymi literami w tekście.
+# znaki niełamliwej spacji języka HTML (&nbsp;) za wszystkimi pojedynczymi
+# literami w tekście.
 #
-
+grep '^#' zad9.sh | sed -r 's/(\s[a-zA-Z])\s/\1\&nbsp;/g'

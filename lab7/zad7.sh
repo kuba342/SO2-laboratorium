@@ -22,4 +22,4 @@
 # dla czytelności, a także być poprzedzone kodami kraju – należy je wtedy
 # także wyodrębnić.
 #
-
+grep -oE '[a-zA-Z0-9_.-]*@[a-zA-Z0-9_.-]*|[0-9+ -]{9,17}' dodatkowe/kant.txt | sed 's/^ *//g'
