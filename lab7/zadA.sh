@@ -29,4 +29,67 @@
 # wartość stanowi pusty łańcuch "", a także proszę obsłużyć zagnieżdżenie
 # kolejnego zbioru kluczy i wartości.
 #
+awk '{
+    line = $0
 
+    #Usunięcie skrajnych {}
+    line = substr(line, 2, length(line)-2)
+
+    #Znaczniki puste - (<klucz />)
+    position = match(line, /"([^:;.,"]+)":( )+""/, tab)
+    len = length(tab[0])
+    
+    while(position != 0){
+        prefiks = substr(line, 1, position-1)
+        
+        value = substr(line, position)
+        sufiks = substr(value, len + 1)
+        
+        tag = "<"tab[1]" />"
+        line = prefiks tag sufiks
+
+        position = match(line, /"([^:;.,"]+)":( )+""/, tab)
+        len = length(tab[0])
+    }
+    
+    #Znaczniki podwójne (<klucz>wartosc</klucz>)
+    position = match(line, /"([^:;.,"]+)": +"([^:;.,"]+)"/, tab)
+    len = length(tab[0])
+
+    while(position != 0){
+        prefiks = substr(line, 1, position-1)
+
+        value = substr(line, position)
+        sufiks = substr(value, len + 1)
+
+        tag = "<"tab[1]">"tab[2]"</"tab[1]">"
+
+        line = prefiks tag sufiks
+
+        position = match(line, /"([^:;.,"]+)": +"([^:;.,"]+)"/, tab)
+        len = length(tab[0])
+    }
+
+    #Obiekty JSON
+    position = match(line, /"([^:;.,"]+)": +{([^:;."]+)}/, tab)
+    len = length(tab[0])
+
+    while(position != 0){
+        prefiks = substr(line, 1, position-1)
+
+        value = substr(line, position)
+        sufiks = substr(value, len + 1)
+
+        tag = "<"tab[1]">"tab[2]"</"tab[1]">"
+
+        line = prefiks tag sufiks
+
+        position = match(line, /"([^:;.,"]+)": +{([^:;."]+)}/, tab)
+        len = length(tab[0])
+    }
+
+    #usuń przecinek i spacje
+    gsub(/,( )+/, "", line)
+
+    print line
+}' dodatkowe/simple.json
